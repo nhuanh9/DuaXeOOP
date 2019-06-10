@@ -8,7 +8,7 @@
 <p>Canvas:</p>
 <canvas id="myCanvas" width="1350" height="600" style="border:1px solid #d3d3d3;">Khong ho tro!
 </canvas>
-<img id="scream" src="Car-Top-Red-icon.png" style="visibility:hidden;" alt="">
+<img id="scream" src="Car-Top-Red-icon.png" width="0" height="0" style="visibility:hidden;" alt="">
 <script>
 
     let theCar = function (x,y) {
@@ -19,18 +19,22 @@
         this.posY = y;
 
         this.diLen = function () {
+            this.ctx.clearRect(0,0,1350,600);
             this.posY -= 5;
             this.ctx.drawImage(this.img, this.posX, this.posY);
         };
         this.diXuong = function () {
+            this.ctx.clearRect(0,0,1350,600);
             this.posY += 5;
             this.ctx.drawImage(this.img, this.posX, this.posY);
         };
         this.diPhai = function () {
+            this.ctx.clearRect(0,0,1350,600);
             this.posX += 5;
             this.ctx.drawImage(this.img, this.posX, this.posY);
         };
         this.diTrai = function () {
+            this.ctx.clearRect(0,0,1350,600);
             this.posX -= 5;
             this.ctx.drawImage(this.img, this.posX, this.posY);
         };
