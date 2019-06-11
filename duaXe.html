@@ -8,34 +8,46 @@
 <p>Canvas:</p>
 <canvas id="myCanvas" width="1350" height="600" style="border:1px solid #d3d3d3;">Khong ho tro!
 </canvas>
-<img id="scream" src="Car-Top-Red-icon.png" width="0" height="0" style="visibility:hidden;" alt="">
 <script>
-
     let theCar = function (x,y) {
         this.c = document.getElementById("myCanvas");
         this.ctx = this.c.getContext("2d");
-        this.img = document.getElementById("scream");
+        this.img = new Image();
         this.posX = x;
         this.posY = y;
+        this.img.src = "Car-Top-Red-icon.png";
 
+        this.drawBackground = function () {
+            let imgBackground = new Image();
+            imgBackground.src = "map.jpg";
+            this.ctx.drawImage(imgBackground,0,0);
+        };
         this.diLen = function () {
             this.ctx.clearRect(0,0,1350,600);
             this.posY -= 5;
+            this.img.src = "Car-Top-Red-icon.png";
+            this.drawBackground();
             this.ctx.drawImage(this.img, this.posX, this.posY);
         };
         this.diXuong = function () {
             this.ctx.clearRect(0,0,1350,600);
             this.posY += 5;
+            this.img.src = "Car-Top-down-icon.png";
+            this.drawBackground();
             this.ctx.drawImage(this.img, this.posX, this.posY);
         };
         this.diPhai = function () {
             this.ctx.clearRect(0,0,1350,600);
             this.posX += 5;
+            this.img.src = "Car-Right-Red-icon.png";
+            this.drawBackground();
             this.ctx.drawImage(this.img, this.posX, this.posY);
         };
         this.diTrai = function () {
             this.ctx.clearRect(0,0,1350,600);
             this.posX -= 5;
+            this.img.src = "Car-Left-Red-icon.png";
+            this.drawBackground();
             this.ctx.drawImage(this.img, this.posX, this.posY);
         };
     };
